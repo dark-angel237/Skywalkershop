@@ -4,8 +4,8 @@ const Lang = (() => {
   const translations = {
     en: {
       siteName:'SKYWALKER Home & Office',cartBtn:'Cart',adminLink:'Admin Panel',langToggle:'FR',
-      heroTag:'New arrivals every week',heroTitle:"Discover Products You'll Love",
-      heroSub:'Browse our carefully curated collection, select your favourites, and order in minutes directly via WhatsApp.',heroCta:'Shop Now',
+      heroTag:'New arrivals every week',heroTitle:"Modern Furniture & Premium Equipment for Home and Office",
+      heroSub:'Superior Quality • Fast Delivery • Easy Ordering via WhatsApp.',heroCta:'Shop Now',
       filterLabel:'Shop by category',filterAll:'All Products',
       searchPlaceholder:'Search products by name or description…',
       resultsAll:'{n} products available',resultsCat:'{n} products in {cat}',resultsSearch:'"{q}" – {n} result',resultsSearchPlural:'"{q}" – {n} results',
@@ -52,8 +52,8 @@ const Lang = (() => {
     },
     fr: {
       siteName:'SKYWALKER Home & Office',cartBtn:'Panier',adminLink:'Administration',langToggle:'EN',
-      heroTag:'Nouveautés chaque semaine',heroTitle:'Découvrez des Produits Que Vous Allez Adorer',
-      heroSub:'Parcourez notre sélection soignée, choisissez vos favoris et commandez en quelques minutes via WhatsApp.',heroCta:'Voir les produits',
+      heroTag:'Nouveautés chaque semaine',heroTitle:'Mobilier moderne & équipements premium pour maison et bureau',
+      heroSub:' Qualité supérieure • Livraison rapide • Commande facile via WhatsApp',heroCta:'Voir les produits',
       filterLabel:'Parcourir par catégorie',filterAll:'Tous les produits',
       searchPlaceholder:'Rechercher par nom ou description…',
       resultsAll:'{n} produits disponibles',resultsCat:'{n} produits dans {cat}',resultsSearch:'"{q}" – {n} résultat',resultsSearchPlural:'"{q}" – {n} résultats',
