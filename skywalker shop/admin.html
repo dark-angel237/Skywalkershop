@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKYWALKER Home &amp; Office – Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-wrap" id="loginScreen">
+    <div class="login-card">
+      <img src="images/Logo Skywalker sans background .png" alt="SKYWALKER Home &amp; Office" />
+      <h1 class="login-title" data-i18n="loginTitle">Admin Panel</h1>
+      <p class="login-sub" data-i18n="loginSub">Sign in to manage your store</p>
+      <button class="lang-btn-login" id="langToggleLogin">FR</button>
+      <div class="field-group">
+        <label for="loginUser" data-i18n="loginUser">Username</label>
+        <input id="loginUser" type="text" autocomplete="username" placeholder="Username" />
+      </div>
+      <div class="field-group">
+        <label for="loginPass" data-i18n="loginPass">Password</label>
+        <input id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••" />
+      </div>
+      <p class="login-error" id="loginError" role="alert"></p>
+      <button class="btn btn-primary btn-block" id="loginBtn" data-i18n="loginBtn">Sign In</button>
+      <a href="index.html" class="back-link" data-i18n="backToStore">← Back to Store</a>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD -->
+  <div class="admin-wrap" id="adminApp" style="display:none;">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Admin navigation">
+      <div class="sidebar-logo-wrap">
+       <img src="images/Logo Skywalker sans background .png" alt="SKYWALKER Home &amp; Office" class="sidebar-logo-img"/>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-panel="products">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><rect x="2" y="3" width="7" height="7" rx="1"/><rect x="15" y="3" width="7" height="7" rx="1"/><rect x="2" y="14" width="7" height="7" rx="1"/><rect x="15" y="14" width="7" height="7" rx="1"/></svg>
+          <span data-i18n="navProducts">Products</span>
+        </button>
+        <button class="nav-item" data-panel="categories">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></svg>
+          <span data-i18n="navCategories">Categories</span>
+        </button>
+        <button class="nav-item" data-panel="orders">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <span data-i18n="navOrders">Orders</span>
+        </button>
+        <button class="nav-item" data-panel="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span data-i18n="navSettings">Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="lang-btn-sidebar" id="langToggleSidebar">FR</button>
+        <button class="logout-btn" id="logoutBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span data-i18n="navLogout">Log Out</span>
+        </button>
+      </div>
+
+      <button class="sidebar-close-btn" id="sidebarClose" aria-label="Close menu">✕</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="admin-content">
+
+      <div class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" width="22" height="22"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h2 class="topbar-title" id="topbarTitle" data-i18n="navProducts">Products</h2>
+        <span class="admin-chip" data-i18n="adminBadge">Admin</span>
+      </div>
+
+      <!-- PRODUCTS PANEL -->
+      <section class="panel" id="panel-products">
+        <div class="panel-head">
+          <div><h2 class="panel-title" data-i18n="panelProducts">Products</h2><span class="count-badge" id="productCount">0</span></div>
+          <button class="btn btn-primary" id="addProductBtn" data-i18n="addProduct">+ Add Product</button>
+        </div>
+        <div class="table-controls">
+          <input id="productSearch" class="ctrl-input" type="search" data-i18n="searchProducts" placeholder="Search products…" />
+          <select id="productCatFilter" class="ctrl-select"><option value="all" data-i18n="allCategories">All Categories</option></select>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="productsTable">
+            <thead><tr>
+              <th data-i18n="colImage">Image</th>
+              <th data-i18n="colName">Name</th>
+              <th data-i18n="colCategory">Category</th>
+              <th data-i18n="colPrice">Price</th>
+              <th data-i18n="colDescription">Description</th>
+              <th data-i18n="colActions">Actions</th>
+            </tr></thead>
+            <tbody id="productsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CATEGORIES PANEL -->
+      <section class="panel" id="panel-categories" style="display:none;">
+        <div class="panel-head">
+          <div><h2 class="panel-title" data-i18n="panelCategories">Categories</h2><span class="count-badge" id="categoryCount">0</span></div>
+          <button class="btn btn-primary" id="addCategoryBtn" data-i18n="addCategory">+ Add Category</button>
+        </div>
+        <div class="cat-grid" id="catGrid"></div>
+      </section>
+
+      <!-- ORDERS PANEL -->
+      <section class="panel" id="panel-orders" style="display:none;">
+        <div class="panel-head">
+          <div><h2 class="panel-title" data-i18n="navOrders">Orders</h2><span class="count-badge" id="orderCount">0</span></div>
+          <button class="btn btn-ghost" id="clearOrdersBtn" data-i18n="clearOrders">Clear All</button>
+        </div>
+
+        <!-- Order search / track -->
+        <div class="order-search-wrap">
+          <div class="order-search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input id="orderSearch" class="ctrl-input" type="search" data-i18n="trackOrderPh" placeholder="Track by Order ID… e.g. SKY-20250402-A3K7P" />
+          </div>
+          <div class="order-track-result" id="orderTrackResult" style="display:none;"></div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr>
+              <th data-i18n="colOrderId">Order ID</th>
+              <th data-i18n="colDate">Date &amp; Time</th>
+              <th data-i18n="colItems">Items</th>
+              <th data-i18n="colTotal">Total</th>
+              <th data-i18n="colStatus">Status</th>
+              <th data-i18n="colActions">Actions</th>
+            </tr></thead>
+            <tbody id="ordersBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SETTINGS PANEL -->
+      <section class="panel" id="panel-settings" style="display:none;">
+        <div class="panel-head"><h2 class="panel-title" data-i18n="panelSettings">Settings</h2></div>
+        <div class="settings-block">
+          <h3 data-i18n="settingsWA">WhatsApp Configuration</h3>
+          <p data-i18n="settingsWASub">All customer orders will be sent to this number.</p>
+          <div class="field-group">
+            <label data-i18n="waNumber">WhatsApp Number</label>
+            <input id="waNumber" type="tel" data-i18n="waNumberPh" placeholder="e.g. 237612345678" />
+            <small data-i18n="waNumberHint">Include country code without + sign.</small>
+          </div>
+          <button class="btn btn-primary" id="saveSettingsBtn" data-i18n="saveSettings">Save Settings</button>
+        </div>
+        <div class="settings-block danger">
+          <h3 data-i18n="dangerZone">Danger Zone</h3>
+          <p data-i18n="dangerSub">Reset all data to the default sample products and categories.</p>
+          <button class="btn btn-danger" id="resetDataBtn" data-i18n="resetData">Reset to Sample Data</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ORDER DETAIL MODAL -->
+  <div class="modal-backdrop" id="orderDetailModalBg">
+    <div class="modal" role="dialog" aria-labelledby="orderDetailTitle" aria-modal="true">
+      <div class="modal-head">
+        <h3 class="modal-title" id="orderDetailTitle" data-i18n="orderDetail">Order Detail</h3>
+        <button class="modal-close-btn" id="orderDetailClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="orderDetailBody"></div>
+      <div class="modal-foot">
+        <div class="order-status-row">
+          <label data-i18n="colStatus">Status</label>
+          <select id="orderStatusSelect" class="ctrl-select">
+            <option value="pending"   data-i18n="statusPending">Pending</option>
+            <option value="confirmed" data-i18n="statusConfirmed">Confirmed</option>
+            <option value="delivered" data-i18n="statusDelivered">Delivered</option>
+            <option value="cancelled" data-i18n="statusCancelled">Cancelled</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" id="saveOrderStatus" data-i18n="saveStatus">Update Status</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-backdrop" id="productModalBg">
+    <div class="modal" role="dialog" aria-labelledby="productModalTitle" aria-modal="true">
+      <div class="modal-head">
+        <h3 class="modal-title" id="productModalTitle" data-i18n="addProductTitle">Add New Product</h3>
+        <button class="modal-close-btn" id="productModalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="field-group">
+          <label data-i18n="fieldImage">Product Image</label>
+          <div class="img-upload-area" id="productImgArea">
+            <img id="productImgPreview" class="img-preview" src="" alt="Preview" style="display:none;" />
+            <div class="img-placeholder" id="productImgPlaceholder">
+              <svg viewBox="0 0 48 48" fill="none" width="40" height="40"><rect x="4" y="8" width="40" height="32" rx="4" stroke="#C9A87C" stroke-width="2"/><circle cx="16" cy="20" r="4" stroke="#C9A87C" stroke-width="2"/><path d="M4 32l10-8 8 6 8-10 14 12" stroke="#C9A87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p data-i18n="imageUploadHint">Click to upload an image</p>
+            </div>
+            <input type="file" id="productImgFile" accept="image/*" style="display:none;" />
+            <div class="img-actions" id="productImgActions" style="display:none;">
+              <button type="button" class="img-action-btn" id="productImgChange" data-i18n="imageChange">Change Image</button>
+              <button type="button" class="img-action-btn danger" id="productImgRemove" data-i18n="imageRemove">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label data-i18n="fieldName">Product Name <span class="req">*</span></label>
+            <input id="productName" type="text" data-i18n="fieldNamePh" placeholder="e.g. Sofa Set" />
+          </div>
+          <div class="field-group">
+            <label data-i18n="fieldPrice">Price (FCFA) <span class="req">*</span></label>
+            <input id="productPrice" type="number" min="1" placeholder="e.g. 250000" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label data-i18n="fieldCategory">Category <span class="req">*</span></label>
+          <select id="productCategory"></select>
+        </div>
+        <div class="field-group">
+          <label data-i18n="fieldDesc">Description <span class="req">*</span></label>
+          <textarea id="productDesc" rows="3" data-i18n="fieldDescPh" placeholder="Short description…"></textarea>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn btn-ghost" id="productModalCancel" data-i18n="cancelBtn">Cancel</button>
+        <button class="btn btn-primary" id="productModalSave" data-i18n="saveProduct">Save Product</button>
+      </div>
+      <input type="hidden" id="productId" />
+    </div>
+  </div>
+
+  <!-- CATEGORY MODAL -->
+  <div class="modal-backdrop" id="categoryModalBg">
+    <div class="modal modal-sm" role="dialog" aria-labelledby="categoryModalTitle" aria-modal="true">
+      <div class="modal-head">
+        <h3 class="modal-title" id="categoryModalTitle" data-i18n="addCategoryTitle">Add New Category</h3>
+        <button class="modal-close-btn" id="categoryModalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="field-group">
+          <label data-i18n="catImage">Category Image</label>
+          <div class="img-upload-area" id="catImgArea">
+            <img id="catImgPreview" class="img-preview" src="" alt="Preview" style="display:none;" />
+            <div class="img-placeholder" id="catImgPlaceholder">
+              <svg viewBox="0 0 48 48" fill="none" width="36" height="36"><rect x="4" y="8" width="40" height="32" rx="4" stroke="#C9A87C" stroke-width="2"/><circle cx="16" cy="20" r="4" stroke="#C9A87C" stroke-width="2"/><path d="M4 32l10-8 8 6 8-10 14 12" stroke="#C9A87C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p data-i18n="imageUploadHint">Click to upload an image</p>
+            </div>
+            <input type="file" id="catImgFile" accept="image/*" style="display:none;" />
+            <div class="img-actions" id="catImgActions" style="display:none;">
+              <button type="button" class="img-action-btn" id="catImgChange" data-i18n="imageChange">Change Image</button>
+              <button type="button" class="img-action-btn danger" id="catImgRemove" data-i18n="imageRemove">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label data-i18n="catName">Category Name <span class="req">*</span></label>
+          <input id="categoryName" type="text" data-i18n="catNamePh" placeholder="e.g. Living Room" />
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn btn-ghost" id="categoryModalCancel" data-i18n="cancelBtn">Cancel</button>
+        <button class="btn btn-primary" id="categoryModalSave" data-i18n="saveCategory">Save Category</button>
+      </div>
+      <input type="hidden" id="categoryId" />
+    </div>
+  </div>
+
+  <!-- DELETE CONFIRM MODAL -->
+  <div class="modal-backdrop" id="confirmModalBg">
+    <div class="modal modal-sm" role="dialog" aria-labelledby="confirmModalTitle" aria-modal="true">
+      <div class="modal-head">
+        <h3 class="modal-title" id="confirmModalTitle" data-i18n="confirmTitle">Confirm Delete</h3>
+        <button class="modal-close-btn" id="confirmModalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="confirm-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <p id="confirmMessage"></p>
+      </div>
+      <div class="modal-foot">
+        <button class="btn btn-ghost" id="confirmCancel" data-i18n="cancelBtn">Cancel</button>
+        <button class="btn btn-danger" id="confirmDeleteBtn" data-i18n="confirmDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
